@@ -1,6 +1,5 @@
 <div id="blog">
 <div class="content">
-  <script>Y.use('squarespace-social-buttons')</script> 
 
   {.repeated section items}
 
@@ -19,22 +18,6 @@
         {.end}
       </header>
 
-      <!--SPECIAL CONTENT-->
-        {.section promotedBlock}
-        <div class="special-content">
-          {@}
-        </div>
-        {.end}
-
-      <section>
-        {.excerpt?}
-          <div class="body entry-content">{excerpt} <p><a class="read-more" href="{fullUrl}">Read more</a></p></div>
-        {.or}
-          {.section body}<div class="body entry-content">{@}</div>{.end}
-          {.passthrough?}{.or}{.section sourceUrl}<div class="entry-source">Source: <a href="{sourceUrl}" target="_blank">{sourceUrl|truncate 42}</a></div>{.end}{.end} 
-        {.end}
-          
-      </section>
 
       <footer class="">
         <div class="meta"> 
@@ -49,24 +32,6 @@
     
     </section>
 
-    <section class="sidebar">
-      <span class="date"><time class="published" datetime="{addedOn|date %F}">{addedOn|date %A %m.%d.%y}</time></span>
-      <address rel="author">{.section author}<span class="author">Posted by <a href="{collection.fullUrl}?author={author.id}">{displayName}</a></span>{.end}</address>
-      <div class="comments">
-        {.comments?}
-          {.if websiteSettings.disqusShortname}
-          {@|comment-link}
-          {.or}
-          {.section publicCommentCount}
-          Comments: <a class="comments" href="{fullUrl}#commentsWrapper" title="Comments">{@}</a>
-            {.or}
-            {.end}
-          {.end}
-        {.end}
-      </div>
-      <div class="social-like">{@|like-button}
-      {@|social-button-inline}</div>
-    </section>
    </article>
 
   <!-- @HACK -->
