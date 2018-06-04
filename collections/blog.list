@@ -1,10 +1,10 @@
-<div id="blog">
+<div id="blogList">
 <div class="content">
 
   {.repeated section items}
 
   <article class="{@|item-classes}" id="article-{id}" data-item-id="{id}">
-    
+
     <section class="main">
       <header class="">
         {.if title}
@@ -20,16 +20,16 @@
 
 
       <footer class="">
-        <div class="meta"> 
-          
+        <div class="meta">
+
           {.section tags}<span class="tags">tags: {.repeated section @}<a href="{collection.fullUrl}?tag={@|url-encode}" rel="tag">{@}</a>{.alternates with}, {.end}</span>{.end}
           {.section categories}<div class="categories">categories: {.repeated section @}<a href="{collection.fullUrl}?category={@|url-encode}" rel="tag">{@}</a>{.alternates with}, {.end}</div>{.end}
-          
+
         </div>
       </footer>
 
       <div class="sqs-post-entry">{postItemInjectCode}</div>
-    
+
     </section>
 
    </article>
@@ -39,14 +39,12 @@
 
   {.end}
   <!--PAGINATION-->
-    
+
   {.section pagination}
     <nav class="pagination">
-        {.if pagination.prevPage}<a href="{prevPageUrl}">Newer</a>{.or}Newer{.end} / 
+        {.if pagination.prevPage}<a href="{prevPageUrl}">Newer</a>{.or}Newer{.end} /
         {.if pagination.nextPage}<a href="{nextPageUrl}">Older</a>{.or}Older{.end}
     </nav>
   {.end}
 </div>
 </div>
-
-
