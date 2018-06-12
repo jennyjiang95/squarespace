@@ -4,7 +4,7 @@
       <span>Filter by topic</span>
       <ul class="nav">
         {.repeated section collection.tags}
-        <li><a href="">{@}</a></li>
+        <li><a href="?tag={@|url-encode}">{@}</a></li>
         {.end}
       </ul>
     </li>
@@ -12,7 +12,7 @@
       <span>Filter by category</span>
       <ul class="nav">
         {.repeated section collection.categories}
-        <li><a href="">{@}</a></li>
+        <li><a href="?category={@|url-encode}">{@}</a></li>
         {.end}
       </ul>
     </li>
