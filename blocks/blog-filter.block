@@ -3,16 +3,32 @@
     <li>
       <h3>Filter by topic</h3>
       <ul>
+        {.if tagFilter}<li class="blogFilterItem active">{tagFilter}</li>{.end}
+        <li class="blogFilterItem">
+          <a href="?{.if categoryFilter}category={categoryFilter}{.end}">(None)</a>
+        </li>
         {.repeated section collection.tags}
-        <li class="blogFilterItem"><a href="?tag={@|url-encode}">{@}</a></li>
+        {.equal?:@:tagFilter}{.or}
+        <li class="blogFilterItem">
+          <a href="?tag={@|url-encode}{.if categoryFilter}&category={categoryFilter}{.end}">{@}</a>
+        </li>
+        {.end}
         {.end}
       </ul>
     </li>
     <li>
       <h3>Filter by category</h3>
       <ul>
+        {.if categoryFilter}<li class="blogFilterItem active">{categoryFilter}</li>{.end}
+        <li class="blogFilterItem">
+          <a href="?{.if tagFilter}tag={tagFilter}{.end}">(None)</a>
+        </li>
         {.repeated section collection.categories}
-        <li class="blogFilterItem"><a href="?category={@|url-encode}">{@}</a></li>
+        {.equal?:@:categoryFilter}{.or}
+        <li class="blogFilterItem">
+          <a href="?category={@|url-encode}{.if tagFilter}&tag={tagFilter}{.end}">{@}</a>
+        </li>
+        {.end}
         {.end}
       </ul>
     </li>
