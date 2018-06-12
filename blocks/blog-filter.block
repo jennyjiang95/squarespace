@@ -1,18 +1,18 @@
 <nav id="blogFilter">
-  <ul class="filters">
+  <ul class="blogFilterMenus">
     <li>
-      <span>Filter by topic</span>
-      <ul class="nav">
+      <h3>Filter by topic</h3>
+      <ul>
         {.repeated section collection.tags}
-        <li><a href="?tag={@|url-encode}">{@}</a></li>
+        <li class="blogFilterItem"><a href="?tag={@|url-encode}">{@}</a></li>
         {.end}
       </ul>
     </li>
     <li>
-      <span>Filter by category</span>
-      <ul class="nav">
+      <h3>Filter by category</h3>
+      <ul>
         {.repeated section collection.categories}
-        <li><a href="?category={@|url-encode}">{@}</a></li>
+        <li class="blogFilterItem"><a href="?category={@|url-encode}">{@}</a></li>
         {.end}
       </ul>
     </li>

@@ -2,29 +2,71 @@
 // Namespace with file's top-level id
 
 #blogFilter {
-  ul.nav li {
+  text-align: center;
+  > ul.blogFilterMenus > li {
     display: inline-block;
-    margin:0 @navSpacing 10px 0;
+    position: relative;
+    top: 0;
+    vertical-align: top;
+    > ul { display: none; }
+    &:hover > ul {
+      display: block;
+      position: absolute;
+      background-color: #1c1c1c;
+      width: 200px;
+      margin: 0;
+      padding: 0;
+      border: 1px solid #d1cccc;
+      border-top: 0;
+    }
+  }
+  li.blogFilterItem {
+    margin: 0;
+    padding: 10px;
+    border-top: 1px solid #d1cccc;
+    &:hover { background: #ffffff; }
+    a {
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+      border-bottom: 0;
+      -webkit-transition: none;
+      transition: none;
+    }
+  }
+  h3, h3 + ul {
+    display: inline-block;
+    margin: 0 10px 10px 0;
     position: relative;
     zoom:1; //ie7/8 fix
     *display:inline; //ie7/8 fix
-
-    // dropdown menus
-    &.folders-collection {
-      > a { cursor: pointer; }
-      .subnav { position: absolute; top: 100%; left: -10px; background: @hfbg; height: 0; overflow: hidden; opacity: 1; z-index: 1000; }
-      ul { overflow:hidden; padding:0 0 10px; display:block; }
-      ul li { margin: 10px 0 0; width:100%; display:block; }
-      ul li a {
-        margin:0 10px;
-        padding: 0 0 2px 0;
-        font-weight: inherit;
-        white-space: nowrap;
-        display: block;
-      }
-    }
   }
 }
+
+// #blogFilter {
+//   ul.filters ul.nav li {
+//     display: inline-block;
+//     margin:0 @navSpacing 10px 0;
+//     position: relative;
+//     zoom:1; //ie7/8 fix
+//     *display:inline; //ie7/8 fix
+//
+//     // dropdown menus
+//     &.folders-collection {
+//       > a { cursor: pointer; }
+//       .subnav { position: absolute; top: 100%; left: -10px; background: @hfbg; height: 0; overflow: hidden; opacity: 1; z-index: 1000; }
+//       ul { overflow:hidden; padding:0 0 10px; display:block; }
+//       ul li { margin: 10px 0 0; width:100%; display:block; }
+//       ul li a {
+//         margin:0 10px;
+//         padding: 0 0 2px 0;
+//         font-weight: inherit;
+//         white-space: nowrap;
+//         display: block;
+//       }
+//     }
+//   }
+// }
 
 #blogList {
   .content {
