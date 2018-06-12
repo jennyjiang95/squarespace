@@ -49,6 +49,14 @@
 #blogList {
   .content {
     columns: 4;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 25em;
+    column-gap: 1em;
+    article {
+      background: gray;
+      border-radius: 4px;
+    }
   }
 }
 

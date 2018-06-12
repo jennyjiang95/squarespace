@@ -19,24 +19,11 @@
         {.end}
       </header>
 
-
-      <footer class="">
-        <div class="meta">
-
-          {.section tags}<span class="tags">tags: {.repeated section @}<a href="{collection.fullUrl}?tag={@|url-encode}" rel="tag">{@}</a>{.alternates with}, {.end}</span>{.end}
-          {.section categories}<div class="categories">categories: {.repeated section @}<a href="{collection.fullUrl}?category={@|url-encode}" rel="tag">{@}</a>{.alternates with}, {.end}</div>{.end}
-
-        </div>
-      </footer>
-
       <div class="sqs-post-entry">{postItemInjectCode}</div>
 
     </section>
 
    </article>
-
-  <!-- @HACK -->
-  <div style="clear: left">&nbsp;</div>
 
   {.end}
   <!--PAGINATION-->
