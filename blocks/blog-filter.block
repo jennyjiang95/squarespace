@@ -1,0 +1,21 @@
+<nav id="blogFilter">
+  <ul class="filters">
+    <li>
+      <span>Filter by topic</span>
+      <ul class="nav">
+        {.repeated section collection.tags}
+        <li><a href="">{@}</a></li>
+        {.end}
+      </ul>
+    </li>
+    <li>
+      <span>Filter by category</span>
+      <ul class="nav">
+        {.repeated section collection.categories}
+        <li><a href="">{@}</a></li>
+        {.end}
+      </ul>
+    </li>
+  </ul>
+
+</nav>

@@ -1,4 +1,5 @@
 <div id="blogList">
+  {@|apply blog-filter.block}
 <div class="content">
 
   {.repeated section items}

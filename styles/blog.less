@@ -1,6 +1,31 @@
 // Blog styling
 // Namespace with file's top-level id
 
+#blogFilter {
+  ul.nav li {
+    display: inline-block;
+    margin:0 @navSpacing 10px 0;
+    position: relative;
+    zoom:1; //ie7/8 fix
+    *display:inline; //ie7/8 fix
+
+    // dropdown menus
+    &.folders-collection {
+      > a { cursor: pointer; }
+      .subnav { position: absolute; top: 100%; left: -10px; background: @hfbg; height: 0; overflow: hidden; opacity: 1; z-index: 1000; }
+      ul { overflow:hidden; padding:0 0 10px; display:block; }
+      ul li { margin: 10px 0 0; width:100%; display:block; }
+      ul li a {
+        margin:0 10px;
+        padding: 0 0 2px 0;
+        font-weight: inherit;
+        white-space: nowrap;
+        display: block;
+      }
+    }
+  }
+}
+
 #blogList {
   .content {
     columns: 4;
@@ -8,5 +33,5 @@
 }
 
 #blogItem {
-  
+
 }
