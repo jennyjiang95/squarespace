@@ -6,14 +6,17 @@
   > ul.blogFilterMenus > li {
     display: inline-block;
     position: relative;
+    height: auto;
     top: 0;
     vertical-align: top;
     > ul { display: none; }
     &:hover > ul {
       display: block;
       position: absolute;
-      background-color: #1c1c1c;
+      max-height: 400px;
       width: 200px;
+      overflow-y: scroll;
+      background-color: #1c1c1c;
       margin: 0;
       padding: 0;
       border: 1px solid #d1cccc;
