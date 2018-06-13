@@ -48,18 +48,31 @@
 
 #blogList {
   .content {
-    columns: 4;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 25em;
+    grid-auto-rows: 15em;
     column-gap: 1em;
+    row-gap: 1em;
     article {
       background: gray;
       border-radius: 4px;
+      &.hentry { margin-bottom: 0px; }
+    }
+    article .blogMain {
+    }
+    article .blogMain h1.entry-title {
+      line-height: 1.25em;
+      margin-left: .75em;
+      .heading-font;
+      color:@headingColor;
+    }
+    article .blogMain h1 a {
+      -webkit-font-smoothing: antialiased;
+    }
+    article .blogMain section .body {
+      -webkit-font-smoothing: antialiased;
+      .body-font;
+      color:@textColor;
     }
   }
-}
-
-#blogItem {
-
 }
