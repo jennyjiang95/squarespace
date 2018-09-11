@@ -18,6 +18,20 @@
         </h1>
         {.end}
       </header>
+      {.if assetUrl}
+      <img src="{assetUrl}">
+      {.or}
+      <script>
+      var bodyObj = {body|json-pretty}
+      var dataSrcStartRegex = /data-src="/
+      var dataSrcEndRegex = /" data-image=/
+      var dataSrcStartIndex = bodyObj.search(dataSrcStartRegex)
+      var dataSrcEndIndex = bodyObj.search(dataSrcEndRegex)
+      var imgSrc = bodyObj.substring(dataSrcStartIndex + 10, dataSrcEndIndex)
+      console.log(imgSrc)
+      </script>
+      <img src="{imgSrc}">
+      {.end}
 
       <div class="sqs-post-entry">{postItemInjectCode}</div>
 
