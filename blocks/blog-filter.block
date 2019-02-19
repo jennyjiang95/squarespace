@@ -45,16 +45,16 @@
     </li>
   </ul>
   <div class="selectedFilters">
-    {.if tagFilter}
-      <a class="activeFilterBox" data-filter="{tagFilter}" data-filter-type="tag">
-        <div class="activeFilter">{tagFilter}</div>
-      </a>
-    {.end}
-    {.if categoryFilter}
-      <a class="activeFilterBox" data-filter="{categoryFilter}" data-filter-type="category">
-        <div class="activeFilter">{categoryFilter}</div>
-      </a>
-    {.end}
+    <a class="activeFilterBox" data-filter="{tagFilter}" data-filter-type="tag"
+      style="{.if tagFilter}{.or}display:none;{.end}"
+      href="?{.if categoryFilter}category={categoryFilter|url-encode}{.end}">
+      <div class="activeFilter">{tagFilter}</div>
+    </a>
+    <a class="activeFilterBox" data-filter="{categoryFilter}" data-filter-type="category"
+      style="{.if categoryFilter}{.or}{.if tagFilter}display:none;{.or}visibility:hidden;{.end}{.end}"
+      href="?{.if tagFilter}tag={tagFilter|url-encode}{.end}">
+      <div class="activeFilter">{categoryFilter}</div>
+    </a>
   </div>
 
 </nav>
