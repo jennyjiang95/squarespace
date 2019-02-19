@@ -74,15 +74,23 @@
       border-radius: 4px;
       &.hentry { margin-bottom: 0px; }
     }
-    .blogScreen {
+    a.blogScreen {
       position: absolute;
       height: 100%;
       width: 100%;
       background-color: black;
       opacity: 0.5;
+      .transition(opacity 0.3s ease-out);
+      &:hover {
+        border: 0;
+        opacity: 0;
+        + .blogMain h1 a{
+          background-color: rgba(0,0,0,0.75);
+          color: white;
+        }
+      }
     }
     .blogMain {
-      position: absolute;
       h1.entry-title {
         line-height: 1.25em;
         margin-left: .75em;
@@ -90,8 +98,13 @@
         color:@headingColor;
       }
       h1 a {
+        position: relative;
         -webkit-font-smoothing: antialiased;
         background-color: rgba(0,0,0,0.5);
+        &:hover {
+          background-color: rgba(0,0,0,1);
+          color: white;
+        }
       }
       section .body {
         -webkit-font-smoothing: antialiased;

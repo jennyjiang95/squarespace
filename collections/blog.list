@@ -7,9 +7,9 @@
   <article class="{@|item-classes}" id="article-{id}" data-item-id="{id}"
     {.main-image?}style="background-image: url('{assetUrl}')"{.end}
     >
-    <div class="blogScreen"></div>
+    <a class="blogScreen" href="{.passthrough?}{sourceUrl}{.or}{fullUrl}{.end}"></a>
     <section class="blogMain">
-      <header class="">
+      <header>
         {.if title}
         <h1 class="entry-title">
           {.passthrough?}
@@ -24,7 +24,6 @@
       <div class="sqs-post-entry">{postItemInjectCode}</div>
 
     </section>
-
    </article>
 
   {.end}
