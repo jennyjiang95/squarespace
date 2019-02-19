@@ -4,8 +4,10 @@
 
   {.repeated section items}
 
-  <article class="{@|item-classes}" id="article-{id}" data-item-id="{id}">
-
+  <article class="{@|item-classes}" id="article-{id}" data-item-id="{id}"
+    {.main-image?}style="background-image: url('{assetUrl}')"{.end}
+    >
+    <div class="blogScreen"></div>
     <section class="blogMain">
       <header class="">
         {.if title}

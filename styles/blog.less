@@ -13,6 +13,7 @@
     &:hover > ul {
       display: block;
       position: absolute;
+      z-index: 1000;
       max-height: 400px;
       width: 200px;
       overflow-y: scroll;
@@ -65,25 +66,38 @@
     column-gap: 1em;
     row-gap: 1em;
     article {
-      background: gray;
+      position: relative;
+      background-color: gray;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
       border-radius: 4px;
       &.hentry { margin-bottom: 0px; }
     }
-    article .blogMain {
+    .blogScreen {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background-color: black;
+      opacity: 0.5;
     }
-    article .blogMain h1.entry-title {
-      line-height: 1.25em;
-      margin-left: .75em;
-      .heading-font;
-      color:@headingColor;
-    }
-    article .blogMain h1 a {
-      -webkit-font-smoothing: antialiased;
-    }
-    article .blogMain section .body {
-      -webkit-font-smoothing: antialiased;
-      .body-font;
-      color:@textColor;
+    .blogMain {
+      position: absolute;
+      h1.entry-title {
+        line-height: 1.25em;
+        margin-left: .75em;
+        .heading-font;
+        color:@headingColor;
+      }
+      h1 a {
+        -webkit-font-smoothing: antialiased;
+        background-color: rgba(0,0,0,0.5);
+      }
+      section .body {
+        -webkit-font-smoothing: antialiased;
+        .body-font;
+        color:@textColor;
+      }
     }
   }
 }
