@@ -13,6 +13,7 @@
     &:hover > ul {
       display: block;
       position: absolute;
+      z-index: 1000;
       max-height: 400px;
       width: 200px;
       overflow-y: scroll;
@@ -37,6 +38,17 @@
       transition: none;
     }
   }
+  .activeFilterBox {
+    display: inline-block;
+    border: 1px solid #ffffff;
+    vertical-align: top;
+    width: 150px;
+    height: 50px;
+    margin: 10px 5px;
+    .activeFilter {
+      padding: 15px 0;
+    }
+  }
   h3, h3 + ul {
     display: inline-block;
     margin: 0 10px 10px 0;
@@ -54,25 +66,51 @@
     column-gap: 1em;
     row-gap: 1em;
     article {
-      background: gray;
+      position: relative;
+      background-color: gray;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
       border-radius: 4px;
       &.hentry { margin-bottom: 0px; }
     }
-    article .blogMain {
+    a.blogScreen {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background-color: black;
+      opacity: 0.5;
+      .transition(opacity 0.3s ease-out);
+      &:hover {
+        border: 0;
+        opacity: 0;
+        + .blogMain h1 a{
+          background-color: rgba(0,0,0,0.75);
+          color: white;
+        }
+      }
     }
-    article .blogMain h1.entry-title {
-      line-height: 1.25em;
-      margin-left: .75em;
-      .heading-font;
-      color:@headingColor;
-    }
-    article .blogMain h1 a {
-      -webkit-font-smoothing: antialiased;
-    }
-    article .blogMain section .body {
-      -webkit-font-smoothing: antialiased;
-      .body-font;
-      color:@textColor;
+    .blogMain {
+      h1.entry-title {
+        line-height: 1.25em;
+        margin-left: .75em;
+        .heading-font;
+        color:@headingColor;
+      }
+      h1 a {
+        position: relative;
+        -webkit-font-smoothing: antialiased;
+        background-color: rgba(0,0,0,0.5);
+        &:hover {
+          background-color: rgba(0,0,0,1);
+          color: white;
+        }
+      }
+      section .body {
+        -webkit-font-smoothing: antialiased;
+        .body-font;
+        color:@textColor;
+      }
     }
   }
 }

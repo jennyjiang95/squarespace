@@ -3,35 +3,58 @@
     <li>
       <h3>Filter by topic</h3>
       <ul>
-        {.if tagFilter}<li class="blogFilterItem active">{tagFilter}</li>{.end}
-        <li class="blogFilterItem">
-          <a href="?{.if categoryFilter}category={categoryFilter}{.end}">(None)</a>
-        </li>
-        {.repeated section collection.tags}
-        {.equal?:@:tagFilter}{.or}
-        <li class="blogFilterItem">
-          <a href="?tag={@|url-encode}{.if categoryFilter}&category={categoryFilter}{.end}">{@}</a>
-        </li>
+        {.if tagFilter}
+          <li class="blogFilterItem active">{tagFilter}</li>
+          <li class="blogFilterItem">
+            <a href="?{.if categoryFilter}category={categoryFilter|url-encode}{.end}">(None)</a>
+          </li>
         {.end}
+        {.repeated section collection.tags}
+          {.equal?:@:tagFilter}{.or}
+            <li class="blogFilterItem">
+              <a href="?{.if categoryFilter}category={categoryFilter|url-encode}&{.end}tag={@|url-encode}">{@}</a>
+            </li>
+          {.end}
         {.end}
       </ul>
     </li>
     <li>
       <h3>Filter by category</h3>
       <ul>
-        {.if categoryFilter}<li class="blogFilterItem active">{categoryFilter}</li>{.end}
-        <li class="blogFilterItem">
-          <a href="?{.if tagFilter}tag={tagFilter}{.end}">(None)</a>
-        </li>
-        {.repeated section collection.categories}
-        {.equal?:@:categoryFilter}{.or}
-        <li class="blogFilterItem">
-          <a href="?category={@|url-encode}{.if tagFilter}&tag={tagFilter}{.end}">{@}</a>
-        </li>
+        {.if categoryFilter}
+          <li class="blogFilterItem active">{categoryFilter}</li>
+          <li class="blogFilterItem">
+            <a href="?{.if tagFilter}tag={tagFilter|url-encode}{.end}">(None)</a>
+          </li>
         {.end}
+        {.repeated section collection.categories}
+          {.equal?:@:categoryFilter}{.or}
+            <li class="blogFilterItem">
+              <a href="?{.if tagFilter}tag={tagFilter|url-encode}&{.end}category={@|url-encode}">{@}</a>
+            </li>
+          {.end}
         {.end}
       </ul>
     </li>
+    <li>
+      <h3>
+        <a href="{collection.urlId}">
+          Clear filters
+        </a>
+      </h3>
+    </li>
   </ul>
+  <div class="selectedFilters">
+    <a class="activeFilterBox" data-filter="{tagFilter}" data-filter-type="tag"
+      style="{.if tagFilter}{.or}display:none;{.end}"
+      href="?{.if categoryFilter}category={categoryFilter|url-encode}{.end}">
+      <div class="activeFilter">{tagFilter}</div>
+    </a>
+    <a class="activeFilterBox" data-filter="{categoryFilter}" data-filter-type="category"
+      style="{.if categoryFilter}{.or}{.if tagFilter}display:none;{.or}visibility:hidden;{.end}{.end}"
+      href="?{.if tagFilter}tag={tagFilter|url-encode}{.end}">
+      <div class="activeFilter">{categoryFilter}</div>
+    </a>
+  </div>
 
 </nav>
