@@ -1,3 +1,8 @@
+<center>
+  <h1> Anti-Eviction Mapping Project </h1>
+</center>
+</br>
+
 <div id="blogList">
   {@|apply blog-filter.block}
 <div class="content">

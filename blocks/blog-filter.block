@@ -5,7 +5,7 @@
       <ul>
         {.if tagFilter}<li class="blogFilterItem active">{tagFilter}</li>{.end}
         <li class="blogFilterItem">
-          <a href="?{.if categoryFilter}category={categoryFilter}{.end}">(None)</a>
+          <a href="?{.if categoryFilter}category={categoryFilter}{.end}">(All)</a>
         </li>
         {.repeated section collection.tags}
         {.equal?:@:tagFilter}{.or}
@@ -17,11 +17,13 @@
       </ul>
     </li>
     <li>
-      <h3>Filter by category</h3>
+
+
+      <h3>Filter by location</h3>
       <ul>
         {.if categoryFilter}<li class="blogFilterItem active">{categoryFilter}</li>{.end}
         <li class="blogFilterItem">
-          <a href="?{.if tagFilter}tag={tagFilter}{.end}">(None)</a>
+          <a href="?{.if tagFilter}tag={tagFilter}{.end}">(All)</a>
         </li>
         {.repeated section collection.categories}
         {.equal?:@:categoryFilter}{.or}
